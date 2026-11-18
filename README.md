@@ -34,3 +34,11 @@ This is an educational code-review scenario, not evidence that a particular outs
 ## What I'd improve next
 
 Add property-based tests, runtime benchmarks across increasing `n`, and an automated review rubric covering security, performance and maintainability for a larger multi-file project.
+
+## Evidence and edge cases
+
+**CV keywords demonstrated:** **Python**, **Code Review**, **Debugging**, **Logic Evaluation**, **Flaw Identification**, **Structured Feedback**, **Algorithmic Logic**, **Technical Writing**, **GitHub**, and **AI-Assisted Development** as an evaluation workflow.
+
+In addition to explicit boundaries and invalid input types, `test_properties.py` checks the Fibonacci recurrence across fifty terms. That catches changes which might still pass a few hand-picked examples. The intentionally flawed function remains named `thing(x)` **only because poor naming is one of the review findings**; the corrected implementation uses descriptive names.
+
+The report analyses a fabricated AI-output example. It is not evidence of having evaluated a real client's AI model or of using Claude/ChatGPT in a documented production review.
