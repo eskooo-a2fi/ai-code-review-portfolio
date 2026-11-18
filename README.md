@@ -1,28 +1,36 @@
-# AI Code Review Portfolio · Fibonacci case study
+# AI-Generated Code Review — Fibonacci Case Study
 
-A professional review of deliberately flawed, AI-generated-style Python. The report identifies a subtle base-case defect, exponential time complexity, weak naming, and missing validation; then proposes and tests an O(n) iterative replacement.
+[![Fibonacci tests](https://github.com/eskooo-a2fi/ai-code-review-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/eskooo-a2fi/ai-code-review-portfolio/actions/workflows/ci.yml)
 
-## Contents
-- `flawed_fibonacci.py` — deliberately unsafe/inaccurate educational example; do not ship it.
-- `corrected_fibonacci.py` — corrected, documented implementation.
-- `test_fibonacci.py` — pytest validation and edge cases.
-- `CODE_REVIEW_REPORT.md` — findings, severity, evidence, acceptance criteria, and feedback for an AI model.
+**A structured technical review of deliberately flawed, AI-generated-style Python code.** This case study demonstrates how to identify a subtle correctness issue, explain an inefficient algorithm, rewrite it responsibly and verify the correction with automated tests.
 
-## Run
+## Review at a glance
+
+| Finding | Why it matters | Recommendation |
+| --- | --- | --- |
+| **Correctness** | Incorrect base case produces the wrong sequence for boundary inputs | Define and assert the conventional `F(0)=0, F(1)=1` contract |
+| **Performance** | Naive recursive calls repeat work, approaching exponential runtime | Use an iterative O(n)-time approach |
+| **Maintainability** | Ambiguous variable names obscure state transitions | Use meaningful identifiers and type hints |
+| **Input contract** | Undocumented edge cases may mask faulty output | Specify and test supported input types and ranges |
+
+**[Read the full professional code-review report](CODE_REVIEW_REPORT.md)**
+
+## Files
+
+- [`flawed_fibonacci.py`](flawed_fibonacci.py) — intentionally incorrect example for analysis, **not for use in production**.
+- [`corrected_fibonacci.py`](corrected_fibonacci.py) — improved implementation.
+- [`test_fibonacci.py`](test_fibonacci.py) — reproducible regression tests.
+- [`CODE_REVIEW_REPORT.md`](CODE_REVIEW_REPORT.md) — severity, evidence, recommendations and AI-model feedback.
+
+## Run the tests
 
 ```bash
 python -m pip install pytest
 python -m pytest -q
-python flawed_fibonacci.py    # intentionally prints incorrect values
 ```
 
-## GitHub
+This is an educational code-review scenario, not evidence that a particular outside AI service generated these bugs. In an interview, discuss how you isolated a failing boundary case, separated correctness from performance, and defined tests that would catch regressions.
 
-```bash
-git init
-git add .
-git commit -m "Document AI-generated Python code review"
-gh repo create ai-code-review-portfolio --public --source=. --remote=origin --push
-```
+## What I'd improve next
 
-The tests verify the *corrected* implementation. If discussing this in an interview, explain how you detected the defect using `F(0)`, quantified the time complexity, and built regression tests.
+Add property-based tests, runtime benchmarks across increasing `n`, and an automated review rubric covering security, performance and maintainability for a larger multi-file project.
